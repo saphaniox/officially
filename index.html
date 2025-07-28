@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    body.dark-mode {
+        background: #181a23 !important;
+        color: #e0e0e0 !important;
+    }
+    body.dark-mode header,
+    body.dark-mode .main-nav {
+        background: #23263a !important;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.25) !important;
+    }
+    body.dark-mode .main-nav {
+        background: linear-gradient(90deg, #23263a 0%, #23263a 100%) !important;
+    }
+    body.dark-mode .logo-img {
+        background: #23263a !important;
+    }
+    body.dark-mode .brand-name {
+        color: #ffd600 !important;
+    }
+    body.dark-mode .nav-link {
+        color: #e0e0e0 !important;
+    }
+    body.dark-mode .nav-link:hover, body.dark-mode .nav-link.active {
+        background: #fff !important;
+        color: #1a237e !important;
+    }
+    body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
+        color: #ffd600 !important;
+    }
+    body.dark-mode p, body.dark-mode li, body.dark-mode label, body.dark-mode span, body.dark-mode a, body.dark-mode td, body.dark-mode th, body.dark-mode input, body.dark-mode textarea, body.dark-mode select {
+        color: #e0e0e0 !important;
+        background-color: transparent !important;
+    }
+    body.dark-mode #about p {
+        color: #ffd600 !important;
+    }
+    body.dark-mode #about h2,
+    body.dark-mode #about p,
+    body.dark-mode #about strong,
+    body.dark-mode #about em {
+        color: #ffd600 !important;
+        background: none !important;
+        text-shadow: 0 1px 8px #23263a44;
+    }
+    body.dark-mode #about {
+        background: linear-gradient(135deg, #23263a 60%, #1a237e 100%);
+        border-radius: 18px;
+        box-shadow: 0 4px 32px #0004;
+        padding: 2.5rem 1.5rem 2rem 1.5rem;
+        margin-bottom: 2.5rem;
+        transition: background 0.4s;
+    }
+    body.dark-mode a {
+        color: #90caf9 !important;
+    }
+    body.dark-mode a:hover {
+        color: #ffd600 !important;
+        text-decoration: underline;
+    }
+    body.dark-mode .service, body.dark-mode .portfolio-card, body.dark-mode .company-card, body.dark-mode .footer-content, body.dark-mode .footer-newsletter, body.dark-mode .modal-content {
+        background: #23263a !important;
+        color: #e0e0e0 !important;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.18) !important;
+    }
+    body.dark-mode .slider-caption, body.dark-mode .slider-caption-overlay {
+        background: rgba(30, 40, 90, 0.85) !important;
+        color: #ffd600 !important;
+    }
+    body.dark-mode .form-message, body.dark-mode .newsletter-note {
+        color: #ffd600 !important;
+    }
+    body.dark-mode input, body.dark-mode textarea, body.dark-mode select {
+        background: #23263a !important;
+        color: #e0e0e0 !important;
+        border: 1px solid #444 !important;
+    }
+    body.dark-mode button, body.dark-mode .slider-arrow {
+        background: #ffd600 !important;
+        color: #23263a !important;
+        border: none !important;
+    }
+    body.dark-mode button:hover, body.dark-mode .slider-arrow:hover {
+        background: #fff !important;
+        color: #1a237e !important;
+    }
+    body.dark-mode .footer-bottom {
+        background: #181a23 !important;
+        color: #e0e0e0 !important;
+    }
+    body.dark-mode .portfolio-intro {
+        background: linear-gradient(135deg, #23263a 0%, #1a237e 100%) !important;
+        border: 1px solid rgba(255, 214, 0, 0.2) !important;
+        box-shadow: 0 4px 20px rgba(255, 214, 0, 0.1) !important;
+        color: #ffd600 !important;
+    }
+    body.dark-mode .portfolio-intro::before {
+        background: linear-gradient(90deg, #ffd600 0%, #fff 50%, #ffd600 100%) !important;
+    }
+    body.dark-mode .portfolio-intro:hover {
+        background: linear-gradient(135deg, #2a2f4a 0%, #1e2a8a 100%) !important;
+        box-shadow: 0 8px 30px rgba(255, 214, 0, 0.2) !important;
+        transform: translateY(-2px) !important;
+    }
+    body.dark-mode #formMessage {
+        background: #23263a !important;
+        border: 1px solid rgba(255, 214, 0, 0.2) !important;
+    }
+    </style>
+    <style>
+    #backToTopBtn {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 200;
+        display: none;
+        background: #1a237e;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        font-size: 2rem;
+        box-shadow: 0 2px 12px rgba(30,40,90,0.18);
+        cursor: pointer;
+        transition: background 0.2s, color 0.2s, opacity 0.3s;
+        opacity: 0.85;
+    }
+    #backToTopBtn:hover {
+        background: #ffd600;
+        color: #1a237e;
+        opacity: 1;
+    }
+    body.dark-mode #backToTopBtn {
+        background: #ffd600;
+        color: #23263a;
+    }
+    body.dark-mode #backToTopBtn:hover {
+        background: #fff;
+        color: #1a237e;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SAP Technologies - Kampala, Uganda: Web Design, Graphics, Electrical Engineering, Software Solutions, and Digital Platforms. Empowering Uganda, Inspiring Africa.">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#1a237e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="SAP Technologies">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/images/logo2.jpg">
+    <meta name="keywords" content="SAP Technologies, Uganda, Web Design, Software, Engineering, Graphics, Portfolio, Kampala, Digital, E-Commerce, Learning, Business, IT, Services, Branding, Solutions, Africa">
+    <meta name="author" content="SAP Technologies">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="SAP Technologies - Uganda">
+    <meta property="og:description" content="Web Design, Graphics, Engineering, Software, and Digital Solutions in Kampala, Uganda. Empowering Uganda, Inspiring Africa.">
+    <meta property="og:image" content="https://sap-technologies.com/images/logo2.jpg">
+    <meta property="og:url" content="https://sap-technologies.com/">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SAP Technologies - Uganda">
+    <meta name="twitter:description" content="Web Design, Graphics, Engineering, Software, and Digital Solutions in Kampala, Uganda. Empowering Uganda, Inspiring Africa.">
+    <meta name="twitter:image" content="https://sap-technologies.com/images/logo2.jpg">
+    <link rel="icon" type="image/png" href="./images/logo2.jpg">
+    <title>SAP Technologies - Uganda</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav" aria-label="Main Navigation">
+            <div class="logo">
+                <img src="./images/logo2.jpg" alt="SAP Logo" class="logo-img" style="height:48px;width:auto;vertical-align:middle;">
+                <span class="brand-name">SAP Technologies</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="login.html" id="loginNav" class="nav-link">Login</a></li>
+                <li><a href="signup.html" id="signupNav" class="nav-link">Sign Up</a></li>
+            </ul>
+            <button id="themeToggle" aria-label="Toggle dark/light mode" title="Toggle dark/light mode" style="margin-left:1rem;background:none;border:none;cursor:pointer;font-size:1.3rem;">🌙</button>
+        </nav>
+    <style>
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        z-index: 100;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(30,40,90,0.07);
+        transition: transform 0.35s cubic-bezier(.4,0,.2,1), background 0.25s;
+    }
+    .main-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 2.5vw;
+        background: linear-gradient(90deg, #1a237e 0%, #3949ab 100%);
+        border-radius: 0 0 16px 16px;
+        box-shadow: 0 2px 8px rgba(30,40,90,0.07);
+    }
+    .header--hidden {
+        transform: translateY(-100%);
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+    }
+    .logo-img {
+        border-radius: 8px;
+        box-shadow: 0 1px 4px rgba(30,40,90,0.10);
+        background: #fff;
+    }
+    .brand-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 1px;
+    }
+    .nav-links {
+        display: flex;
+        gap: 1.2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-link {
+        color: #fff;
+        font-weight: 500;
+        font-size: 1.08rem;
+        text-decoration: none;
+        padding: 0.4rem 1rem;
+        border-radius: 6px;
+        transition: background 0.2s, color 0.2s;
+    }
+    .nav-link:hover, .nav-link.active {
+        background: #fff;
+        color: #1a237e;
+        font-weight: 700;
+    }
+    #themeToggle {
+        color: #fff;
+        transition: color 0.2s;
+    }
+    #themeToggle:hover {
+        color: #ffd600;
+    }
+    @media (max-width: 700px) {
+        .main-nav { flex-direction: column; align-items: flex-start; padding: 0.5rem 1vw; }
+        .nav-links { flex-wrap: wrap; gap: 0.5rem; }
+        .logo-img { height: 36px; }
+        .brand-name { font-size: 1.1rem; }
+    }
+    </style>
+    </header>
+    <main style="margin-top: 90px;">
+        <section id="home" class="hero">
+            <h1>Welcome to SAP Technologies</h1>
+            <p>Your partner in Web Design, Graphics, Electrical Engineering, and Software Solutions in Kampala, Uganda.</p>
+        </section>
+    
+        <!-- Professional Slider Section -->
+        <section class="slider-section">
+            <div class="slider-container">
+                <div class="slider-slide active">
+                    <img src="./images/slider1.jpg" alt="Innovative Web Design">
+                    <div class="slider-caption slider-caption-overlay">
+                        <h2>Innovative Web Design</h2>
+                        <p>Transforming your ideas into stunning digital experiences.</p>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="./images/slider2.jpg" alt="Creative Graphics & Logo">
+                    <div class="slider-caption slider-caption-overlay">
+                        <h2>Creative Graphics & Logo</h2>
+                        <p>Branding that makes your business unforgettable.</p>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="./images/slider3.jpg" alt="Electrical Engineering Excellence">
+                    <div class="slider-caption slider-caption-overlay">
+                        <h2>Electrical Engineering Excellence</h2>
+                        <p>Reliable, safe, and efficient engineering solutions.</p>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="./images/slider4.jpg" alt="Smart Software Solutions">
+                    <div class="slider-caption slider-caption-overlay">
+                        <h2>Smart Software Solutions</h2>
+                        <p>Custom software to power your business growth.</p>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="./images/banner2.jpg" alt="Business Platforms">
+                    <div class="slider-caption slider-caption-overlay">
+                        <h2>Business Platforms</h2>
+                        <p>Empowering Ugandan businesses with modern technology solutions.</p>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="./images/GRAPHICS-DESIGN.jpg" alt="Graphics Design Excellence">
+                    <div class="slider-caption slider-caption-overlay">
+                        <h2>Graphics Design Excellence</h2>
+                        <p>Stunning visuals and creative branding for your business growth.</p>
+                    </div>
+                </div>
+                <div class="slider-slide">
+                    <img src="./images/LMS.jpg" alt="Learning Management System">
+                    <div class="slider-caption slider-caption-overlay">
+                        <h2>Learning Management System</h2>
+                        <p>Empowering education with digital tools and analytics.</p>
+                    </div>
+                </div>
+                <button class="slider-arrow left" aria-label="Previous Slide">&#10094;</button>
+                <button class="slider-arrow right" aria-label="Next Slide">&#10095;</button>
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>
+                <strong>Empowering Uganda, Inspiring Africa.</strong><br>
+                At SAP Technologies, we believe technology is the catalyst for progress and transformation. Founded in the heart of Kampala, we are more than just a tech company,we are visionaries, innovators, and partners in your success. Our multidisciplinary team blends creativity, engineering excellence, and deep industry expertise to deliver world-class solutions in web design, branding, electrical engineering, and custom software.
+            </p>
+            <p>
+                We are driven by a passion to empower businesses, entrepreneurs, and communities across Uganda and beyond. Every project is an opportunity to inspire, to solve real-world challenges, and to elevate our clients to new heights. With a relentless commitment to quality, integrity, and innovation, SAP Technologies is shaping the digital future of Africa, one idea, one solution, one success story at a time.
+            </p>
+            <p>
+                <em>Let’s build the future together.</em>
+            </p>
+        </section>
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services-list">
+                <div class="service">
+                    <img src="./images/WEB-DESIGN.jpg" alt="Web Design" class="service-img">
+                    <h3>Web Designs</h3>
+                    <p>We create modern, responsive, and visually stunning websites tailored to your business needs. Our team uses the latest technologies and best practices to ensure your site is fast, secure, and user-friendly. From e-commerce to corporate sites, we deliver solutions that help you stand out online.</p>
+                </div>
+                <div class="service">
+                    <img src="./images/graphics.jpg" alt="Graphics & Logo" class="service-img">
+                    <h3>Graphics & Logos</h3>
+                    <p>Our creative designers craft unique graphics and memorable logos that capture your brand’s identity. We offer branding packages, marketing materials, and digital assets to elevate your business presence both online and offline.</p>
+                </div>
+                <div class="service">
+                    <img src="./images/electrical.jpg" alt="Electrical Engineering Designs" class="service-img">
+                    <h3>Electrical Engineering Designs</h3>
+                    <p>We provide professional electrical schematics, circuit designs, and engineering solutions for residential, commercial, and industrial projects. Our certified engineers ensure safety, efficiency, and compliance with Ugandan and international standards.</p>
+                </div>
+                <div class="service">
+                    <img src="./images/software.jpg" alt="Software Solutions" class="service-img">
+                    <h3>Software Solutions</h3>
+                    <p>From custom business applications to mobile apps, we develop robust software tailored to your requirements. Our solutions streamline operations, improve productivity, and drive digital transformation for your organization.</p>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+            <div class="portfolio-profile">
+                <img src="images/me3.jpg" alt="My Photo" class="profile-pic">
+            </div>
+            <p class="portfolio-intro">I am a highly motivated and detail-oriented full-stack web and software developer with years of experience in designing, developing, and deploying scalable web applications and software solutions.i have Proficiency in a range of technologies including front-end development, back-end development, databases and version control systems.
+                i specialize in languages like HTML5, CSS3, JavaScript, React, Angular and Vue.js for front-end development<br> Node.js, Python, Ruby on Rails, Java, PHP and C# for back-end development<br> MySQL, MongoDB, PostgreSQL and SQL Server for databases,
+                and Git and GitHub for version control.<br>
+                i have also worked on various projects, including e-commerce platforms, business websites, and custom software applications.<br>
+                i am committed to delivering high-quality code and ensuring that my work meets the highest standards of quality and performance.<br>
+                i am always eager to learn and stay up-to-date with the latest trends and technologies in the field of web development and software engineering.<br>
+                i am a quick learner and a team player, and i am always open to working on new projects and collaborating with others in the field.<br>
+                i am confident that my experience and expertise can help me deliver exceptional results for my clients and help them achieve their goals. <br>
+                i am not just a developer but a professional electrical engineer, editor, graphics designer and storyteller basing in Kampala, Uganda.<br> <br> Here are some of my featured projects, please take a look</p>
+            <div class="portfolio-gallery">
+                <div class="portfolio-card">
+                    <img src="./images/ecommerce-platform.jpg" alt="E-Commerce Platform">
+                    <div class="portfolio-content">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-featured online store with shopping cart, payments, and admin dashboard.</p>
+                        <div class="tech-stack">
+                            <span>React</span><span>Node.js</span><span>Express</span><span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="./images/business-platform.jpg" alt="Business Website">
+                    <div class="portfolio-content">
+                        <h3>Business Website</h3>
+                        <p>Responsive company site with blog, contact forms, and SEO optimization.</p>
+                        <div class="tech-stack">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Node.js</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="./images/GRAPHICS-DESIGN.jpg" alt="Graphics & Branding">
+                    <div class="portfolio-content">
+                        <h3>Graphics & Branding</h3>
+                        <p>Custom logo and brand identity design for startups and businesses.</p>
+                        <div class="tech-stack">
+                            <span>Photoshop</span><span>Illustrator</span><span>Figma</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="./images/iot2.jpg" alt="IoT Dashboard">
+                    <div class="portfolio-content">
+                        <h3>IoT Dashboard</h3>
+                        <p>Real-time monitoring and control dashboard for smart devices and sensors.</p>
+                        <div class="tech-stack">
+                            <span>React</span><span>Node.js</span><span>Socket.io</span><span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="./images/school-management.jpg" alt="School Management System">
+                    <div class="portfolio-content">
+                        <h3>School Management System</h3>
+                        <p>Comprehensive platform for managing students, staff, classes, and results with real-time analytics.</p>
+                        <div class="tech-stack">
+                            <span>React</span><span>Node.js</span><span>MongoDB</span><span>Express</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="./images/mobile-app.jpg" alt="Mobile Banking App">
+                    <div class="portfolio-content">
+                        <h3>Mobile Banking App</h3>
+                        <p>Secure and user-friendly mobile app for digital banking, transfers, and bill payments.</p>
+                        <div class="tech-stack">
+                            <span>React Native</span><span>Node.js</span><span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="./images/portfolio-app.jpg" alt="Portfolio Website">
+                    <div class="portfolio-content">
+                        <h3>Portfolio Website</h3>
+                        <p>Personal portfolio site to showcase skills, projects, and contact information with a blog section.</p>
+                        <div class="tech-stack">
+                            <span>Next.js</span><span>CSS</span><span>Markdown</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="./images/inventory-management.jpg" alt="Inventory Management">
+                    <div class="portfolio-content">
+                        <h3>Inventory Management</h3>
+                        <p>Web app for tracking stock, sales, and suppliers with reporting and notifications.</p>
+                        <div class="tech-stack">
+                            <span>Vue.js</span><span>Node.js</span><span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="./images/event-booking.jpg" alt="Event Booking Platform">
+                    <div class="portfolio-content">
+                        <h3>Event Booking Platform</h3>
+                        <p>Online system for booking, managing, and promoting events with real-time seat selection and payments.</p>
+                        <div class="tech-stack">
+                            <span>React</span><span>Node.js</span><span>MongoDB</span><span>Stripe</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="./images/chat-app.jpg" alt="Chat Application">
+                    <div class="portfolio-content">
+                        <h3>Chat Application</h3>
+                        <p>Real-time chat app with group messaging, file sharing, and notifications.</p>
+                        <div class="tech-stack">
+                            <span>React</span><span>Node.js</span><span>Socket.io</span><span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="./images/restaurant-ordering.jpg" alt="Restaurant Ordering System">
+                    <div class="portfolio-content">
+                        <h3>Restaurant Ordering System</h3>
+                        <p>Touch-friendly web app for digital menus, table reservations, and order management.</p>
+                        <div class="tech-stack">
+                            <span>Vue.js</span><span>Node.js</span><span>MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <img src="./images/LMS.jpg" alt="Learning Management System">
+                    <div class="portfolio-content">
+                        <h3>Learning Management System</h3>
+                        <p>Platform for online courses, quizzes, and student progress tracking with analytics dashboard.</p>
+                        <div class="tech-stack">
+                            <span>React</span><span>Node.js</span><span>MongoDB</span><span>Express</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="companies" class="companies">
+            <h2>Our Other Platforms</h2>
+            <div class="companies-list">
+                <div class="company-card">
+                    <img src="./images/SAP-ENGINEERING.jpg" alt="SAP Engineering" class="company-img">
+                    <div class="company-content">
+                        <h3>SAP Engineering</h3>
+                        <p>Specializing in electrical, civil, and mechanical engineering solutions for Uganda and beyond. We deliver innovative, safe, and efficient engineering projects for all sectors.</p>
+                        <a href="https://sapengineering.ug" target="_blank" class="company-link">Visit SAP Engineering</a>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <img src="./images/sap-onlineplatform.png" alt="SAP Online Learning" class="company-img">
+                    <div class="company-content">
+                        <h3>SAP Online Learning</h3>
+                        <p>Your gateway to digital skills! Explore online courses in programming, design, engineering, and more, tailored for African learners and professionals.</p>
+                        <a href="https://saplearning.ug" target="_blank" class="company-link">Visit SAP Online Learning</a>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <img src="./images/sap-ecomerce-site.jpg" alt="SAP E-Commerce" class="company-img">
+                    <div class="company-content">
+                        <h3>SAP E-Commerce</h3>
+                        <p>Modern online shopping platform for Ugandan businesses and customers. Secure payments, product management, and seamless user experience.</p>
+                        <a href="https://sapecommerce.ug" target="_blank" class="company-link">Visit SAP E-Commerce</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <input type="text" name="name" placeholder="Your Name (2-100 characters)" required minlength="2" maxlength="100">
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message (10-1000 characters)" required minlength="10" maxlength="1000"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div id="formMessage" aria-live="polite"></div>
+        </section>
+    </main>
+    <div id="authModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div id="authForms">
+                <form id="loginForm" style="display:none;">
+                    <h2>Login</h2>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                    <div class="form-message" id="loginMessage"></div>
+                </form>
+                <form id="signupForm" style="display:none;">
+                    <h2>Sign Up</h2>
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <button type="submit">Sign Up</button>
+                    <div class="form-message" id="signupMessage"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <button id="backToTopBtn" aria-label="Back to top" title="Back to top">↑</button>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="./images/logo2.jpg" alt="SAP Logo" class="footer-logo">
+                <span>SAP Technologies</span>
+                <p>Kampala, Uganda</p>
+                <p class="footer-motto">Empowering Uganda, Inspiring Africa.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#companies">Our Platforms</a></li>
+                    <li><a href="/login.html">Login</a></li>
+                    <li><a href="/signup.html">Sign Up</a></li>
+                </ul>
+            </div>
+            <div class="footer-platforms">
+                <h4>Our Companies</h4>
+                <ul>
+                    <li><a href="https://sapengineering.ug" target="_blank">SAP Engineering</a></li>
+                    <li><a href="https://saplearning.ug" target="_blank">SAP Online Learning</a></li>
+                    <li><a href="https://sapecommerce.ug" target="_blank">SAP E-Commerce</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p><strong>Email:</strong> <a href="mailto:info@sap-technologies.com">info@sap-technologies.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+256706564628">+256 785 447 141</a></p>
+                <p><strong>Address:</strong> Nakasero Road, Kampala, Uganda</p>
+                <p><strong>Hours:</strong> Mon - Sat: 8:00am - 6:00pm</p>
+                <p><strong>Support:</strong> <a href="mailto:support@sap-technologies.com">support@sap-technologies.com</a></p>
+                <p><strong>Careers:</strong> <a href="mailto:careers@sap-technologies.com">careers@sap-technologies.com</a></p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/256706564628" target="_blank">+256 706 564 628</a></p>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/company/sap-technologies-uganda" target="_blank" title="LinkedIn">
+                        <img src="https://img.icons8.com/color/48/linkedin.png" alt="LinkedIn" width="24" height="24">
+                    </a>
+                    <a href="https://github.com/sap-technologies" target="_blank" title="GitHub">
+                        <img src="https://img.icons8.com/color/48/github.png" alt="GitHub" width="24" height="24">
+                    </a>
+                    <a href="https://twitter.com/saptechug" target="_blank" title="Twitter">
+                        <img src="https://img.icons8.com/color/48/twitter.png" alt="Twitter" width="24" height="24">
+                    </a>
+                    <a href="https://facebook.com/saptechnologiesug" target="_blank" title="Facebook">
+                        <img src="https://img.icons8.com/color/48/facebook.png" alt="Facebook" width="24" height="24">
+                    </a>
+                    <a href="https://wa.me/256706564628" target="_blank" title="WhatsApp">
+                        <img src="https://img.icons8.com/color/48/whatsapp.png" alt="WhatsApp" width="24" height="24">
+                    </a>
+                    <a href="mailto:info@sap-technologies.com" title="Email">
+                        <img src="https://img.icons8.com/color/48/mail.png" alt="Email" width="24" height="24">
+                    </a>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Subscribe to Our Newsletter</h4>
+                <form action="#" method="post" class="newsletter-form">
+                    <input type="email" name="newsletter-email" placeholder="Your Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p class="newsletter-note">Get the latest news, updates, and offers from SAP Technologies.</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SAP Technologies, Kampala, Uganda. All rights reserved. | <a href="privacy.html" style="color:inherit; text-decoration:underline;">Privacy Policy</a> | <a href="terms.html" style="color:inherit; text-decoration:underline;">Terms of Service</a></p>
+        </div>
+    </footer>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+    <script>
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+        });
+    }
+    
+    // Back to Top button logic
+    (function() {
+        const btn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 200) {
+                btn.style.display = 'block';
+            } else {
+                btn.style.display = 'none';
+            }
+        });
+        btn.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    })();
+    </script>
+    <script>
+    // Hide/show header on scroll for better visibility
+    (function() {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        const header = document.querySelector('header');
+        function onScroll() {
+            if (!header) return;
+            if (window.scrollY > lastScrollY && window.scrollY > 80) {
+                header.classList.add('header--hidden');
+            } else {
+                header.classList.remove('header--hidden');
+            }
+            lastScrollY = window.scrollY;
+        }
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    onScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+    })();
+    </script>
+    <script>
+    // Active link highlighting & dark mode toggle for index.html
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            // Check if user has a saved preference, otherwise default to dark mode
+            let dark = localStorage.getItem('theme');
+            if (dark === null) {
+                // No saved preference, default to dark mode
+                dark = 'dark';
+            } else {
+                // Use saved preference
+                dark = dark === 'dark';
+            }
+            
+            function setTheme(d) {
+                if (d) {
+                    document.body.classList.add('dark-mode');
+                    themeToggle.textContent = '☀️';
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    themeToggle.textContent = '🌙';
+                }
+                localStorage.setItem('theme', d ? 'dark' : 'light');
+            }
+            // Set theme on load
+            setTheme(dark);
+            themeToggle.addEventListener('click', function() {
+                dark = !dark;
+                setTheme(dark);
+            });
+        }
+    });
+    </script>
+    <script>
+    // Newsletter subscription handler (original, no enhancements)
+    document.addEventListener('DOMContentLoaded', function() {
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const emailInput = newsletterForm.querySelector('input[name="newsletter-email"]');
+                const email = emailInput.value.trim();
+                const note = newsletterForm.nextElementSibling;
+                if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+                    note.textContent = 'Please enter a valid email address.';
+                    note.style.color = 'red';
+                    return;
+                }
+                note.textContent = 'Subscribing...';
+                note.style.color = '#333';
+                try {
+                    const res = await fetch('/api/newsletter/subscribe', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ email })
+                    });
+                    const data = await res.json();
+                    if (res.ok) {
+                        note.textContent = data.message || 'Thank you for subscribing!';
+                        note.style.color = 'green';
+                        emailInput.value = '';
+                    } else {
+                        note.textContent = data.message || 'Subscription failed. Please try again.';
+                        note.style.color = 'red';
+                    }
+                } catch (err) {
+                    note.textContent = 'Network error. Please try again later.';
+                    note.style.color = 'red';
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>

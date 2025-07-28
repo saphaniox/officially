@@ -1,0 +1,257 @@
+/* Modern main navigation styles for auth pages */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0a2540;
+  color: #fff;
+  padding: 0.7rem 2rem;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 4px 24px rgba(0,191,174,0.10);
+  margin-bottom: 2.5rem;
+}
+.main-nav .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #00bfae;
+}
+.main-nav .logo-img {
+  height: 38px;
+  width: 38px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  border: 2px solid #00bfae;
+  box-shadow: 0 2px 8px rgba(0,191,174,0.10);
+}
+.main-nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+.main-nav .nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 12px;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+}
+.main-nav .nav-links li a:hover, .main-nav .nav-links li a.active {
+  background: linear-gradient(90deg, #00bfae 0%, #0a2540 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0,191,174,0.13);
+  text-decoration: none;
+}
+@media (max-width: 700px) {
+  .main-nav {
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 0.7rem 0.5rem;
+  }
+  .main-nav .logo {
+    font-size: 1.1rem;
+    gap: 0.4rem;
+  }
+  .main-nav .logo-img {
+    height: 28px;
+    width: 28px;
+  }
+  .main-nav .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  .main-nav .nav-links li a {
+    width: 100%;
+    text-align: left;
+    padding: 0.7rem 1rem;
+  }
+}
+/* Style for Back to Home shortcut button */
+.shortcut-home {
+  display: inline-block;
+  margin-top: 0.7rem;
+  padding: 0.7rem 1.3rem;
+  background: linear-gradient(90deg, #00bfae 60%, #0a2540 100%);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.08rem;
+  box-shadow: 0 2px 8px rgba(0,191,174,0.10);
+  transition: background 0.3s, color 0.2s, transform 0.2s;
+}
+.shortcut-home:hover, .shortcut-home:focus {
+  background: linear-gradient(90deg, #0a2540 60%, #00bfae 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
+  text-decoration: none;
+  outline: none;
+}
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #00bfae 0%, #0a2540 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.auth-container {
+    background: rgba(255,255,255,0.95);
+    padding: 2.5rem 2rem;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    min-width: 320px;
+    max-width: 350px;
+    width: 100%;
+    animation: fadeInUp 1s cubic-bezier(.39,.575,.56,1.000);
+}
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+.auth-form {
+    position: relative;
+}
+.auth-form h2 {
+    text-align: center;
+    color: #0a2540;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+.auth-form .input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.auth-form input {
+    width: 100%;
+    padding: 1.2rem 1rem 0.6rem 1rem;
+    border: 1px solid #00bfae;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f4f6fa;
+    transition: border 0.3s;
+}
+.auth-form input:focus {
+    border: 2px solid #0a2540;
+    outline: none;
+}
+.auth-form label {
+    position: absolute;
+    left: 1rem;
+    top: 1.1rem;
+    color: #888;
+    font-size: 1rem;
+    pointer-events: none;
+    transition: 0.2s cubic-bezier(.4,0,.2,1);
+    background: transparent;
+}
+.auth-form input:focus + label,
+.auth-form input:not(:placeholder-shown) + label {
+    top: -0.7rem;
+    left: 0.8rem;
+    font-size: 0.85rem;
+    color: #00bfae;
+    background: #fff;
+    padding: 0 0.3rem;
+}
+.input-group .toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 1.1rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #888;
+    transition: color 0.2s;
+}
+.input-group .toggle-password.active {
+    color: #00bfae;
+    transform: rotate(20deg) scale(1.2);
+}
+.auth-form button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, #00bfae 60%, #0a2540 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,191,174,0.08);
+    transition: background 0.3s, transform 0.2s;
+}
+.auth-form button:hover {
+    background: linear-gradient(90deg, #0a2540 60%, #00bfae 100%);
+    transform: translateY(-2px) scale(1.03);
+}
+.auth-form button.loading {
+    position: relative;
+    color: transparent !important;
+}
+.auth-form button.loading:after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    border: 3px solid #fff;
+    border-top: 3px solid #00bfae;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    transform: translate(-50%, -50%);
+}
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+.form-message {
+    text-align: center;
+    color: #e53935;
+    margin-bottom: 1rem;
+    min-height: 1.2em;
+    transition: color 0.3s, opacity 0.3s;
+    opacity: 1;
+}
+.form-message.hide {
+    opacity: 0;
+}
+.input-group input.invalid {
+    border: 2px solid #e53935;
+}
+.input-group input.valid {
+    border: 2px solid #00bfae;
+}
+.input-group label.invalid {
+    color: #e53935;
+}
+.input-group label.valid {
+    color: #00bfae;
+}
+.auth-form p {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+.auth-form a {
+    color: #00bfae;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.auth-form a:hover {
+    color: #0a2540;
+}

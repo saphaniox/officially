@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account - SAP Technologies</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+        background: linear-gradient(120deg, #1a237e 0%, #3949ab 100%);
+        min-height: 100vh;
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    header {
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(30,40,90,0.07);
+        padding: 0.7rem 0;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2vw;
+    }
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+    }
+    .logo-img {
+        border-radius: 8px;
+        height: 40px;
+        width: auto;
+        box-shadow: 0 1px 4px rgba(30,40,90,0.10);
+        background: #fff;
+    }
+    .nav-links {
+        display: flex;
+        gap: 1.2rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-links a {
+        color: #1a237e;
+        font-weight: 500;
+        font-size: 1.08rem;
+        text-decoration: none;
+        padding: 0.4rem 1rem;
+        border-radius: 6px;
+        transition: background 0.2s, color 0.2s;
+    }
+    .nav-links a:hover {
+        background: #ffd600;
+        color: #1a237e;
+        font-weight: 700;
+    }
+    main {
+        max-width: 430px;
+        margin: 2.5rem auto 0 auto;
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 4px 32px #0002;
+        padding: 2.5rem 2rem 2rem 2rem;
+    }
+    .account-section h2 {
+        color: #1a237e;
+        margin-bottom: 1.2rem;
+        font-size: 1.7rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-align: center;
+    }
+    .profile-pic-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 1.2rem;
+    }
+    .profile-pic-large {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2.5px solid #1a237e;
+        margin-bottom: 0.7rem;
+        background: #f7f8fa;
+    }
+    .profile-pic-wrap input[type="file"] {
+        margin-bottom: 0.5rem;
+    }
+    .profile-pic-wrap button {
+        background: #3949ab;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 1.2rem;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        transition: background 0.2s;
+    }
+    .profile-pic-wrap button:hover {
+        background: #ffd600;
+        color: #1a237e;
+    }
+    .account-info {
+        margin-bottom: 1.2rem;
+        background: #f7f8fa;
+        border-radius: 8px;
+        padding: 0.7rem 1rem;
+        font-size: 1.05rem;
+    }
+    .account-info strong {
+        color: #3949ab;
+    }
+    form {
+        margin-bottom: 1.1rem;
+    }
+    label {
+        color: #3949ab;
+        font-weight: 500;
+        margin-bottom: 0.2rem;
+        display: block;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+        width: 100%;
+        padding: 0.7rem 1rem;
+        border: 1.5px solid #bdbdbd;
+        border-radius: 8px;
+        font-size: 1.08rem;
+        background: #f7f8fa;
+        outline: none;
+        margin-bottom: 0.3rem;
+        transition: border 0.2s;
+    }
+    input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+        border: 1.5px solid #1a237e;
+        background: #fff;
+    }
+    button[type="submit"], #logoutBtn, #deleteAccountBtn {
+        background: linear-gradient(90deg, #1a237e 0%, #3949ab 100%);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 0.7rem 0;
+        font-size: 1.08rem;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        margin-top: 0.2rem;
+        margin-bottom: 0.7rem;
+        cursor: pointer;
+        box-shadow: 0 2px 8px #1a237e22;
+        transition: background 0.2s;
+        width: 100%;
+    }
+    button[type="submit"]:hover, #logoutBtn:hover, #deleteAccountBtn:hover {
+        background: #ffd600;
+        color: #1a237e;
+    }
+    .danger {
+        color: #d32f2f;
+        font-weight: 600;
+        margin-top: 0.5rem;
+        text-align: center;
+    }
+    #passwordStrength {
+        margin-bottom: 0.3rem;
+        font-size: 0.95rem;
+    }
+    h3 {
+        color: #3949ab;
+        margin-top: 1.5rem;
+        margin-bottom: 0.7rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    ul#activityLog {
+        background: #f7f8fa;
+        border-radius: 8px;
+        padding: 0.7rem 1rem;
+        font-size: 0.98rem;
+        margin-bottom: 1.2rem;
+        min-height: 2.2em;
+    }
+    .footer-bottom {
+        background: #181a23;
+        color: #e0e0e0;
+        text-align: center;
+        padding: 1.1rem 0 0.7rem 0;
+        border-radius: 0 0 18px 18px;
+        margin-top: 2.5rem;
+        font-size: 0.98rem;
+    }
+    @media (max-width: 600px) {
+        main {
+            padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+            max-width: 98vw;
+        }
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.7rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="./images/logo2.jpg" alt="SAP Logo" class="logo-img">
+                <span>SAP Technologies</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="#" id="logoutNav">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="account-section">
+            <h2>Welcome, <span id="accountName"></span>!</h2>
+            <div class="profile-pic-wrap">
+                <img id="profilePic" src="" alt="Profile Picture" class="profile-pic-large">
+                <form id="profilePicForm" enctype="multipart/form-data">
+                    <input type="file" id="profilePicInput" name="profilePic" accept="image/*">
+                    <button type="submit">Upload Picture</button>
+                    <span id="profilePicMsg"></span>
+                </form>
+            </div>
+            <div class="account-info">
+                <p><strong>Email:</strong> <span id="accountEmail"></span></p>
+                <p><strong>Registered:</strong> <span id="accountDate"></span></p>
+            </div>
+            <form id="editNameForm">
+                <label for="editName">Edit Name:</label>
+                <input type="text" id="editName" name="editName" required>
+                <button type="submit">Update Name</button>
+                <span id="editNameMsg"></span>
+            </form>
+            <form id="editEmailForm">
+                <label for="editEmail">Change Email:</label>
+                <input type="email" id="editEmail" name="editEmail" required>
+                <button type="submit">Update Email</button>
+                <span id="editEmailMsg"></span>
+            </form>
+            <form id="editPasswordForm">
+                <label for="editPassword">Change Password:</label>
+                <input type="password" id="editPassword" name="editPassword" required>
+                <div id="passwordStrength" class="password-strength"></div>
+                <button type="submit">Update Password</button>
+                <span id="editPasswordMsg"></span>
+            </form>
+            <button id="deleteAccountBtn" class="danger">Delete Account</button>
+            <p id="deleteMsg" class="danger"></p>
+            <h3>Recent Activity</h3>
+            <ul id="activityLog"></ul>
+            <p>This is your account dashboard. You are now logged in.</p>
+            
+            <div id="adminLink" style="text-align: center; margin: 1.5rem 0; display: none;">
+                <a href="/admin.html" style="display: inline-block; background: #ffd600; color: #1a237e; padding: 0.8rem 1.5rem; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s; margin-bottom: 1rem;">Admin Dashboard</a>
+            </div>
+            
+            <button id="logoutBtn">Logout</button>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2025 SAP Technologies, Kampala, Uganda. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Notification Modal -->
+    <div id="notificationModal" class="notification-modal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); display: none; justify-content: center; align-items: center; z-index: 1000;">
+        <div class="notification-content" style="background: white; padding: 2rem; border-radius: 12px; text-align: center; max-width: 400px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);">
+            <div class="notification-icon" style="font-size: 3rem; margin-bottom: 1rem;">🚫</div>
+            <div class="notification-title" style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; color: #d32f2f;">Access Denied</div>
+            <div class="notification-message" style="color: #666; margin-bottom: 1.5rem; line-height: 1.5;">
+                You don't have admin privileges to access the admin dashboard. 
+                Only authorized personnel can view this page.
+            </div>
+            <button class="notification-btn" onclick="closeNotification()" style="background: #1a237e; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 8px; cursor: pointer; font-size: 1rem; transition: background 0.3s;">OK, I Understand</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="account.js"></script>
+</body>
+</html>
